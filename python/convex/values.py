@@ -369,6 +369,8 @@ def json_to_convex(v: JsonValue) -> ConvexValue:
         return v
     if v is None:
         return None
+    if isinstance(v, int):
+        return float(v)
     if isinstance(v, list):
         convex_values: ConvexValue = [json_to_convex(x) for x in v]
         return convex_values
